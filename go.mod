@@ -11,20 +11,21 @@ require (
 	go.etcd.io/etcd v0.0.0-20191023171146-3cf2f69b5738
 	go.uber.org/zap v1.15.0
 	golang.org/x/lint v0.0.0-20200302205851-738671d3881b // indirect
-	k8s.io/api v0.18.2
-	k8s.io/apimachinery v0.18.2
+	k8s.io/api v0.18.3
+	k8s.io/apimachinery v0.18.3
 	k8s.io/client-go v12.0.0+incompatible
-	k8s.io/kube-openapi v0.0.0-20200121204235-bf4fb3bd569c
+	k8s.io/kube-openapi v0.0.0-20200410145947-61e04a5be9a6
 	sigs.k8s.io/controller-runtime v0.6.0
 )
 
 replace (
 	github.com/openshift/api => github.com/openshift/api v3.9.1-0.20190814194116-a94e914914f4+incompatible
 	github.com/openshift/client-go => github.com/openshift/client-go v0.0.0-20190813201236-5a5508328169
+	k8s.io/client-go => k8s.io/client-go v0.18.3
 )
 
 replace github.com/Azure/go-autorest => github.com/Azure/go-autorest v13.3.2+incompatible // Required by OLM
 
-replace k8s.io/client-go => k8s.io/client-go v0.17.4 // Required by prometheus-operator
+//replace  // Required by prometheus-operator
 
 go 1.14

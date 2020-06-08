@@ -29,11 +29,11 @@ import (
 
 func GetOpenAPIDefinitions(ref common.ReferenceCallback) map[string]common.OpenAPIDefinition {
 	return map[string]common.OpenAPIDefinition{
-		"./pkg/apis/apps/v1alpha1.Nexus":            schema_pkg_apis_apps_v1alpha1_Nexus(ref),
-		"./pkg/apis/apps/v1alpha1.NexusPersistence": schema_pkg_apis_apps_v1alpha1_NexusPersistence(ref),
-		"./pkg/apis/apps/v1alpha1.NexusProbe":       schema_pkg_apis_apps_v1alpha1_NexusProbe(ref),
-		"./pkg/apis/apps/v1alpha1.NexusSpec":        schema_pkg_apis_apps_v1alpha1_NexusSpec(ref),
-		"./pkg/apis/apps/v1alpha1.NexusStatus":      schema_pkg_apis_apps_v1alpha1_NexusStatus(ref),
+		"github.com/m88i/nexus-operator/pkg/apis/apps/v1alpha1.Nexus":            schema_pkg_apis_apps_v1alpha1_Nexus(ref),
+		"github.com/m88i/nexus-operator/pkg/apis/apps/v1alpha1.NexusPersistence": schema_pkg_apis_apps_v1alpha1_NexusPersistence(ref),
+		"github.com/m88i/nexus-operator/pkg/apis/apps/v1alpha1.NexusProbe":       schema_pkg_apis_apps_v1alpha1_NexusProbe(ref),
+		"github.com/m88i/nexus-operator/pkg/apis/apps/v1alpha1.NexusSpec":        schema_pkg_apis_apps_v1alpha1_NexusSpec(ref),
+		"github.com/m88i/nexus-operator/pkg/apis/apps/v1alpha1.NexusStatus":      schema_pkg_apis_apps_v1alpha1_NexusStatus(ref),
 	}
 }
 
@@ -65,19 +65,19 @@ func schema_pkg_apis_apps_v1alpha1_Nexus(ref common.ReferenceCallback) common.Op
 					},
 					"spec": {
 						SchemaProps: spec.SchemaProps{
-							Ref: ref("./pkg/apis/apps/v1alpha1.NexusSpec"),
+							Ref: ref("github.com/m88i/nexus-operator/pkg/apis/apps/v1alpha1.NexusSpec"),
 						},
 					},
 					"status": {
 						SchemaProps: spec.SchemaProps{
-							Ref: ref("./pkg/apis/apps/v1alpha1.NexusStatus"),
+							Ref: ref("github.com/m88i/nexus-operator/pkg/apis/apps/v1alpha1.NexusStatus"),
 						},
 					},
 				},
 			},
 		},
 		Dependencies: []string{
-			"./pkg/apis/apps/v1alpha1.NexusSpec", "./pkg/apis/apps/v1alpha1.NexusStatus", "k8s.io/apimachinery/pkg/apis/meta/v1.ObjectMeta"},
+			"github.com/m88i/nexus-operator/pkg/apis/apps/v1alpha1.NexusSpec", "github.com/m88i/nexus-operator/pkg/apis/apps/v1alpha1.NexusStatus", "k8s.io/apimachinery/pkg/apis/meta/v1.ObjectMeta"},
 	}
 }
 
@@ -194,7 +194,7 @@ func schema_pkg_apis_apps_v1alpha1_NexusSpec(ref common.ReferenceCallback) commo
 					"persistence": {
 						SchemaProps: spec.SchemaProps{
 							Description: "Persistence definition",
-							Ref:         ref("./pkg/apis/apps/v1alpha1.NexusPersistence"),
+							Ref:         ref("github.com/m88i/nexus-operator/pkg/apis/apps/v1alpha1.NexusPersistence"),
 						},
 					},
 					"useRedHatImage": {
@@ -214,7 +214,7 @@ func schema_pkg_apis_apps_v1alpha1_NexusSpec(ref common.ReferenceCallback) commo
 					"networking": {
 						SchemaProps: spec.SchemaProps{
 							Description: "Networking definition",
-							Ref:         ref("./pkg/apis/apps/v1alpha1.NexusNetworking"),
+							Ref:         ref("github.com/m88i/nexus-operator/pkg/apis/apps/v1alpha1.NexusNetworking"),
 						},
 					},
 					"serviceAccountName": {
@@ -227,13 +227,13 @@ func schema_pkg_apis_apps_v1alpha1_NexusSpec(ref common.ReferenceCallback) commo
 					"livenessProbe": {
 						SchemaProps: spec.SchemaProps{
 							Description: "LivenessProbe describes how the Nexus container liveness probe should work",
-							Ref:         ref("./pkg/apis/apps/v1alpha1.NexusProbe"),
+							Ref:         ref("github.com/m88i/nexus-operator/pkg/apis/apps/v1alpha1.NexusProbe"),
 						},
 					},
 					"readinessProbe": {
 						SchemaProps: spec.SchemaProps{
 							Description: "ReadinessProbe describes how the Nexus container readiness probe should work",
-							Ref:         ref("./pkg/apis/apps/v1alpha1.NexusProbe"),
+							Ref:         ref("github.com/m88i/nexus-operator/pkg/apis/apps/v1alpha1.NexusProbe"),
 						},
 					},
 				},
@@ -241,7 +241,7 @@ func schema_pkg_apis_apps_v1alpha1_NexusSpec(ref common.ReferenceCallback) commo
 			},
 		},
 		Dependencies: []string{
-			"./pkg/apis/apps/v1alpha1.NexusNetworking", "./pkg/apis/apps/v1alpha1.NexusPersistence", "./pkg/apis/apps/v1alpha1.NexusProbe", "k8s.io/api/core/v1.ResourceRequirements"},
+			"github.com/m88i/nexus-operator/pkg/apis/apps/v1alpha1.NexusNetworking", "github.com/m88i/nexus-operator/pkg/apis/apps/v1alpha1.NexusPersistence", "github.com/m88i/nexus-operator/pkg/apis/apps/v1alpha1.NexusProbe", "k8s.io/api/core/v1.ResourceRequirements"},
 	}
 }
 
