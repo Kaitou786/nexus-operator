@@ -70,7 +70,6 @@ jobs:
         uses: coverallsapp/github-action@master
         with:
           github-token: ${{ secrets.github_token }}
-          parallel-finished: true
   integration_tests:
     name: Integration Tests
     # we should wait for an ok from the other two
