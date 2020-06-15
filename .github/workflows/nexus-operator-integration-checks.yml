@@ -66,6 +66,8 @@ jobs:
     needs: [golint, unit_test]
     runs-on: ubuntu-latest
     steps:
+      - name: Check out code
+        uses: actions/checkout@v2
       - name: Coveralls
         uses: coverallsapp/github-action@master
         with:
