@@ -62,11 +62,20 @@ jobs:
 
       - name: Test Packages
         run: go test ./pkg/... -count=1
-
+  coverage_test:
+    needs: [golint, unit_test]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+      - name: Coveralls
+        uses: coverallsapp/github-action@master
+        with:
+          github-token: ${{ secrets.github_token }}
   integration_tests:
     name: Integration Tests
     # we should wait for an ok from the other two
-    needs: [golint, unit_test]
+    needs: [golint, unit_test, coverage_test]
     runs-on: ubuntu-latest
     env:
       CLUSTER_NAME: operator-test
