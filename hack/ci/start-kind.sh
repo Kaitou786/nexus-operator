@@ -16,6 +16,7 @@
 #     You should have received a copy of the GNU General Public License
 #     along with Nexus Operator.  If not, see <https://www.gnu.org/licenses/>.
 
+#just the test to see the subs test pass
 set -e
 
 if [ -z "${KUBE_VERSION}" ]; then
